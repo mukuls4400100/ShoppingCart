@@ -1,0 +1,24 @@
+﻿@model IEnumerable<ShoppingCart.Models.Product>
+
+@{
+    ViewBag.Title = "Displayproducts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <div class="card" style="width:15rem; margin-bottom:30px;">
+                <img src="@item.ImgPro" class="card-img-top" alt="..." style="height:200px"/>
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align:center">@item.ProdName</h5>
+                    <p class="card-text">@item.ProdDesc</p>
+                    <p class="card-text">Price: &#8377;@item.ProdPrice</p>
+                    <button>@Html.ActionLink("Add to Cart", "AddToCart", "Cart", new { id = item.ProdId }, null)</button></div>
+            </div>`
+        </div>
+    }
+
+</div>
